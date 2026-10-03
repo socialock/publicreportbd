@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>রিপোর্ট — Public Report BD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="/" class="brand">
+        <i class="fa-solid fa-bullhorn brand-icon"></i>
+        <span>Public Report BD</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/" class="nav-link"><i class="fa-solid fa-house"></i> হোম</a>
+        <a href="create.html" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> রিপোর্ট করুন</a>
+        <a href="auth.html" class="nav-link" id="navAuth"><i class="fa-solid fa-user"></i> লগইন</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container report-wrap">
+    <div id="reportLoading" class="loading"><i class="fa-solid fa-spinner fa-spin"></i> লোড হচ্ছে...</div>
+    <div id="reportError" class="empty hidden">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <p>রিপোর্ট পাওয়া যায়নি।</p>
+    </div>
+
+    <article id="reportArticle" class="report-article hidden">
+      <div class="report-head">
+        <span class="badge" id="rCategory"></span>
+        <h1 id="rTitle"></h1>
+        <div class="report-meta">
+          <span><i class="fa-solid fa-user"></i> <span id="rAuthor"></span></span>
+          <span><i class="fa-solid fa-clock"></i> <span id="rCreated"></span></span>
+          <span id="rLocationWrap"><i class="fa-solid fa-location-dot"></i> <span id="rLocation"></span></span>
+          <span id="rIncidentWrap"><i class="fa-solid fa-calendar"></i> <span id="rIncident"></span></span>
+        </div>
+        <div class="police-status" id="rPolice"></div>
+      </div>
+
+      <div class="report-body">
+        <p id="rDescription"></p>
+      </div>
+
+      <div class="report-evidence hidden" id="rEvidenceWrap">
+        <h3><i class="fa-solid fa-link"></i> Evidence / Reference</h3>
+        <ul id="rEvidenceList"></ul>
+      </div>
+
+      <div class="report-actions">
+        <button id="likeBtn" class="action-btn">
+          <i class="fa-regular fa-heart"></i>
+          <span>Like</span>
+          <span class="count" id="likeCount">0</span>
+        </button>
+        <button id="commentFocusBtn" class="action-btn">
+          <i class="fa-regular fa-comment"></i>
+          <span>Comment</span>
+          <span class="count" id="commentCount">0</span>
+        </button>
+        <button id="shareBtn" class="action-btn">
+          <i class="fa-solid fa-share-nodes"></i>
+          <span>Share</span>
+        </button>
+      </div>
+
+      <!-- Comments -->
+      <section class="comments-section">
+        <h3><i class="fa-regular fa-comments"></i> মন্তব্য</h3>
+
+        <form id="commentForm" class="comment-form">
+          <textarea id="commentInput" rows="3" placeholder="আপনার মন্তব্য লিখুন..." required></textarea>
+          <button type="submit" class="btn btn-primary btn-sm">
+            <i class="fa-solid fa-paper-plane"></i> পাঠান
+          </button>
+          <p id="commentMsg" class="form-msg"></p>
+        </form>
+
+        <div id="commentsList" class="comments-list"></div>
+      </section>
+    </article>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/report.js"></script>
+</body>
+</html>

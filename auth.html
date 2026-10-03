@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>লগইন / রেজিস্টার — Public Report BD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="/" class="brand">
+        <i class="fa-solid fa-bullhorn brand-icon"></i>
+        <span>Public Report BD</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/" class="nav-link"><i class="fa-solid fa-house"></i> হোম</a>
+        <a href="/create.html" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> রিপোর্ট করুন</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="auth-wrap container">
+    <div class="auth-card">
+      <div class="tabs">
+        <button class="tab active" data-tab="login">লগইন</button>
+        <button class="tab" data-tab="register">রেজিস্টার</button>
+      </div>
+
+      <!-- Login form -->
+      <form id="loginForm" class="auth-form">
+        <h2>লগইন করুন</h2>
+        <div class="field">
+          <label for="loginIdentifier">Username বা Email</label>
+          <input id="loginIdentifier" type="text" required autocomplete="username" />
+        </div>
+        <div class="field">
+          <label for="loginPassword">Password</label>
+          <input id="loginPassword" type="password" required autocomplete="current-password" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          <i class="fa-solid fa-right-to-bracket"></i> লগইন
+        </button>
+        <p class="form-msg" id="loginMsg"></p>
+      </form>
+
+      <!-- Register form -->
+      <form id="registerForm" class="auth-form hidden">
+        <h2>নতুন অ্যাকাউন্ট</h2>
+        <div class="field">
+          <label for="regUsername">Username</label>
+          <input id="regUsername" type="text" required minlength="3" maxlength="24" pattern="[A-Za-z0-9_]+" />
+          <small>৩-২৪ অক্ষর, শুধু a-z, 0-9, _</small>
+        </div>
+        <div class="field">
+          <label for="regEmail">Email</label>
+          <input id="regEmail" type="email" required />
+        </div>
+        <div class="field">
+          <label for="regPassword">Password</label>
+          <input id="regPassword" type="password" required minlength="6" />
+          <small>কমপক্ষে ৬ অক্ষর</small>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          <i class="fa-solid fa-user-plus"></i> অ্যাকাউন্ট খুলুন
+        </button>
+        <p class="form-msg" id="registerMsg"></p>
+      </form>
+    </div>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

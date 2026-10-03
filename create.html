@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>রিপোর্ট করুন — Public Report BD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="/" class="brand">
+        <i class="fa-solid fa-bullhorn brand-icon"></i>
+        <span>Public Report BD</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/" class="nav-link"><i class="fa-solid fa-house"></i> হোম</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container create-wrap">
+    <div class="create-head">
+      <h1><i class="fa-solid fa-pen-to-square"></i> নতুন রিপোর্ট</h1>
+      <p>সতর্কতার সাথে সঠিক তথ্য দিন। মিথ্যা অভিযোগ আইনত দণ্ডনীয়।</p>
+    </div>
+
+    <form id="reportForm" class="create-form">
+      <fieldset>
+        <legend>ঘটনার তথ্য</legend>
+
+        <div class="field">
+          <label for="category">ক্যাটাগরি *</label>
+          <select id="category" required>
+            <option value="">— নির্বাচন করুন —</option>
+            <option>চাঁদাবাজি</option>
+            <option>দুর্নীতি</option>
+            <option>হত্যা</option>
+            <option>ধর্ষণ/যৌন সহিংসতা</option>
+            <option>নিখোঁজ</option>
+            <option>প্রতারণা</option>
+            <option>পুলিশি হয়রানি</option>
+            <option>অন্যান্য</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="title">শিরোনাম *</label>
+          <input id="title" type="text" required minlength="5" maxlength="200" placeholder="সংক্ষেপে ঘটনা লিখুন" />
+        </div>
+
+        <div class="field">
+          <label for="description">বিস্তারিত বর্ণনা *</label>
+          <textarea id="description" rows="8" required minlength="20" placeholder="ঘটনার বিস্তারিত বিবরণ দিন..."></textarea>
+        </div>
+
+        <div class="grid-3">
+          <div class="field">
+            <label for="division">বিভাগ</label>
+            <select id="division">
+              <option value="">—</option>
+              <option>ঢাকা</option>
+              <option>চট্টগ্রাম</option>
+              <option>রাজশাহী</option>
+              <option>খুলনা</option>
+              <option>বরিশাল</option>
+              <option>সিলেট</option>
+              <option>রংপুর</option>
+              <option>ময়মনসিংহ</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="district">জেলা</label>
+            <input id="district" type="text" placeholder="যেমন: সাভার / ঢাকা" />
+          </div>
+          <div class="field">
+            <label for="area">এলাকা</label>
+            <input id="area" type="text" placeholder="নির্দিষ্ট এলাকা" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="incidentDate">ঘটনার তারিখ</label>
+          <input id="incidentDate" type="date" />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>পুলিশ / মামলার তথ্য</legend>
+
+        <div class="field">
+          <label for="policeStatus">মামলার অবস্থা</label>
+          <select id="policeStatus">
+            <option value="unknown">জানা নেই</option>
+            <option value="filed">মামলা হয়েছে</option>
+            <option value="not_filed">মামলা নেয়নি</option>
+            <option value="investigating">তদন্ত চলছে</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="caseReference">মামলা / রেফারেন্স নম্বর (ঐচ্ছিক)</label>
+          <input id="caseReference" type="text" maxlength="120" />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>External Evidence / Reference (ঐচ্ছিক)</legend>
+        <p class="hint">ফাইল আপলোড নয় — শুধু লিংক দিন (Google Drive, Docs, News, YouTube, ওয়েবসাইট)।</p>
+
+        <div id="linkRows"></div>
+        <button type="button" id="addLinkBtn" class="btn btn-ghost btn-sm">
+          <i class="fa-solid fa-plus"></i> আরেকটি লিংক
+        </button>
+      </fieldset>
+
+      <div class="form-footer">
+        <p id="reportMsg" class="form-msg"></p>
+        <button type="submit" class="btn btn-primary btn-block">
+          <i class="fa-solid fa-paper-plane"></i> রিপোর্ট জমা দিন
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/create.js"></script>
+</body>
+</html>

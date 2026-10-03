@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Public Report Bangladesh — জনস্বার্থে রিপোর্ট</title>
+  <meta name="description" content="বাংলাদেশের মানুষদের জন্য একটি উন্মুক্ত পাবলিক রিপোর্টিং প্ল্যাটফর্ম" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="/" class="brand">
+        <i class="fa-solid fa-bullhorn brand-icon"></i>
+        <span>Public Report BD</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/" class="nav-link active"><i class="fa-solid fa-house"></i> হোম</a>
+        <a href="/create.html" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> রিপোর্ট করুন</a>
+        <a href="/auth.html" class="nav-link" id="navAuth"><i class="fa-solid fa-user"></i> লগইন</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1 class="hero-title">সত্য প্রকাশ করুন, <span class="gradient-text">দেশ বদলান</span></h1>
+      <p class="hero-sub">
+        চাঁদাবাজি, দুর্নীতি, হত্যা, যৌন সহিংসতা, প্রতারণা — যেকোনো অন্যায়ের ঘটনা
+        এখানে রিপোর্ট করুন। সব রিপোর্ট পাবলিকভাবে পড়া যাবে।
+      </p>
+      <div class="hero-actions">
+        <a href="/create.html" class="btn btn-primary">
+          <i class="fa-solid fa-pen-to-square"></i> রিপোর্ট করুন
+        </a>
+        <a href="#reports" class="btn btn-ghost">
+          <i class="fa-solid fa-list"></i> রিপোর্ট দেখুন
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notice -->
+  <div class="container">
+    <div class="notice">
+      <i class="fa-solid fa-circle-info"></i>
+      <span>
+        এখানে প্রকাশিত প্রতিটি রিপোর্ট ব্যবহারকারী-প্রদত্ত। এটি প্রমাণিত ঘটনা হিসেবে
+        বিবেচনা করা উচিত নয়।
+      </span>
+    </div>
+  </div>
+
+  <!-- Search + Filter -->
+  <section class="container controls">
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input id="searchInput" type="text" placeholder="শিরোনাম, এলাকা বা কীওয়ার্ড দিয়ে খুঁজুন..." />
+    </div>
+    <div class="category-filter" id="categoryFilter">
+      <button class="chip active" data-cat="">সব</button>
+      <button class="chip" data-cat="চাঁদাবাজি">চাঁদাবাজি</button>
+      <button class="chip" data-cat="দুর্নীতি">দুর্নীতি</button>
+      <button class="chip" data-cat="হত্যা">হত্যা</button>
+      <button class="chip" data-cat="ধর্ষণ/যৌন সহিংসতা">যৌন সহিংসতা</button>
+      <button class="chip" data-cat="নিখোঁজ">নিখোঁজ</button>
+      <button class="chip" data-cat="প্রতারণা">প্রতারণা</button>
+      <button class="chip" data-cat="পুলিশি হয়রানি">পুলিশি হয়রানি</button>
+      <button class="chip" data-cat="অন্যান্য">অন্যান্য</button>
+    </div>
+  </section>
+
+  <!-- Reports -->
+  <section class="container" id="reports">
+    <div id="reportsList" class="reports-grid"></div>
+    <div id="loading" class="loading hidden">
+      <i class="fa-solid fa-spinner fa-spin"></i> লোড হচ্ছে...
+    </div>
+    <div id="emptyState" class="empty hidden">
+      <i class="fa-regular fa-folder-open"></i>
+      <p>কোনো রিপোর্ট পাওয়া যায়নি।</p>
+    </div>
+    <div class="load-more-wrap">
+      <button id="loadMoreBtn" class="btn btn-ghost hidden">আরও দেখুন</button>
+    </div>
+  </section>
+
+  <!-- Mobile bottom nav -->
+  <nav class="bottom-nav">
+    <a href="/" class="bottom-link active"><i class="fa-solid fa-house"></i><span>হোম</span></a>
+    <a href="create.html" class="bottom-link"><i class="fa-solid fa-pen-to-square"></i><span>রিপোর্ট</span></a>
+    <a href="auth.html" class="bottom-link" id="bottomAuth"><i class="fa-solid fa-user"></i><span>অ্যাকাউন্ট</span></a>
+  </nav>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Public Report Bangladesh — একটি অলাভজনক উদ্যোগ</p>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
